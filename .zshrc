@@ -23,7 +23,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 # Plugins
 zinit ice wait lucid
 zinit for \
-  zdharma-continuum/fast-syntax-highlighting \
+  zsh-users/zsh-syntax-highlighting \
   zsh-users/zsh-completions \
   zsh-users/zsh-autosuggestions \
   Aloxaf/fzf-tab \
@@ -32,6 +32,8 @@ zinit for \
 # ── Completion ────────────────────────────────────────────────────
 autoload -Uz compinit && compinit
 compinit -C
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=''  # or 'fg=grey'
+
 
 # ── Terminal / Input ──────────────────────────────────────────────
 bindkey -v
@@ -61,6 +63,10 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
+# ── Rust OS project ───────────────────────────────────────────────
+export DISPLAY=:0
+. "$HOME/.cargo/env"
+. "$HOME/.local/bin/env"
 
 # ── Aliases ───────────────────────────────────────────────────────
 alias ll='ls -lah'
@@ -73,6 +79,7 @@ alias gp='git push'
 alias gcam='git commit -am'
 alias rcreload='source ~/.zshrc'
 alias zshrc='cursor ~/.zshrc'
+alias bashrc='cursor ~/.bashrc'
 alias activate='source .venv/bin/activate'
 alias dotp10k='cursor ~/.p10k.zsh'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
