@@ -65,8 +65,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # ── Rust OS project ───────────────────────────────────────────────
 export DISPLAY=:0
-. "$HOME/.cargo/env"
-. "$HOME/.local/bin/env"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # ── Aliases ───────────────────────────────────────────────────────
 alias ll='ls -lah'
@@ -83,3 +82,6 @@ alias bashrc='cursor ~/.bashrc'
 alias activate='source .venv/bin/activate'
 alias dotp10k='cursor ~/.p10k.zsh'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias activate='source .venv/bin/activate'
+alias act='activate'
+alias deact='deactivate'
